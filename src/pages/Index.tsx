@@ -7,7 +7,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Sidebar />
-      <main className="ml-0 md:ml-64 p-4 md:p-8 animate-fade-in">
+      <main className="ml-16 md:ml-64 p-4 md:p-8 animate-fade-in">
         <div className="flex justify-end mb-4 md:mb-8">
           <ThemeToggle />
         </div>
@@ -19,10 +19,17 @@ const Index = () => {
             Stay Connected, Stay Ahead - Your Digital Campus Hub
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4">
-            <Button size="lg" className="glass w-full sm:w-auto">
+            <Button 
+              size="lg" 
+              className="bg-primary text-primary-foreground hover:bg-primary/90 w-full sm:w-auto"
+            >
               Sign Up
             </Button>
-            <Button size="lg" variant="outline" className="glass w-full sm:w-auto">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground w-full sm:w-auto"
+            >
               Login
             </Button>
           </div>
