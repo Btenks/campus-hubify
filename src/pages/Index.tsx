@@ -2,8 +2,11 @@
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Sidebar } from "@/components/Sidebar";
+import { SignInButton, SignUpButton, useUser } from "@clerk/clerk-react";
 
 const Index = () => {
+  const { user, isLoaded } = useUser();
+
   return (
     <div className="min-h-screen bg-background">
       <Sidebar />
@@ -19,19 +22,23 @@ const Index = () => {
             Stay Connected, Stay Ahead - Your Digital Campus Hub
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4">
-            <Button 
-              size="lg" 
-              className="bg-primary text-primary-foreground hover:bg-primary/90 w-full sm:w-auto"
-            >
-              Sign Up
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground w-full sm:w-auto"
-            >
-              Login
-            </Button>
+            <SignUpButton mode="modal">
+              <Button 
+                size="lg" 
+                className="bg-primary text-primary-foreground hover:bg-primary/90 w-full sm:w-auto"
+              >
+                Sign Up
+              </Button>
+            </SignUpButton>
+            <SignInButton mode="modal">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground w-full sm:w-auto"
+              >
+                Login
+              </Button>
+            </SignInButton>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 mt-8 md:mt-16">
