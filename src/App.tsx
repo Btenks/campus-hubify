@@ -26,7 +26,7 @@ const AuthError = () => (
       <p className="text-muted-foreground">
         Please sign in to access this content. Our community features are available to registered users.
       </p>
-      <SignInButton redirectUrl="/">
+      <SignInButton mode="modal">
         <button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 rounded-md transition-colors">
           Sign In to Continue
         </button>
