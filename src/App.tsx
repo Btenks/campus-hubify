@@ -10,6 +10,9 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Announcements from "./pages/Announcements";
 import Events from "./pages/Events";
+import Messages from "./pages/Messages";
+import Marketplace from "./pages/Marketplace";
+import Profile from "./pages/Profile";
 
 const queryClient = new QueryClient();
 
@@ -23,7 +26,7 @@ const AuthError = () => (
       <p className="text-muted-foreground">
         Please sign in to access this content. Our community features are available to registered users.
       </p>
-      <SignInButton>
+      <SignInButton redirectUrl="/">
         <button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 rounded-md transition-colors">
           Sign In to Continue
         </button>
@@ -77,6 +80,30 @@ const App = () => (
             element={
               <ProtectedRoute>
                 <Events />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/messages" 
+            element={
+              <ProtectedRoute>
+                <Messages />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/marketplace" 
+            element={
+              <ProtectedRoute>
+                <Marketplace />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/profile" 
+            element={
+              <ProtectedRoute>
+                <Profile />
               </ProtectedRoute>
             } 
           />
