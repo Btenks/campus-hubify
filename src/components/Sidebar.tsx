@@ -9,6 +9,7 @@ import {
   User,
 } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 
 const menuItems = [
@@ -47,14 +48,14 @@ export function Sidebar() {
       </div>
       <nav className="flex-1 space-y-1 md:space-y-2 p-3 md:p-4">
         {menuItems.map((item) => (
-          <a
+          <Link
             key={item.label}
-            href={item.href}
+            to={item.href}
             className="flex items-center space-x-3 rounded-lg px-2 md:px-3 py-2 text-gray-700 transition-all hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
           >
             <item.icon className="h-4 w-4 md:h-5 md:w-5" />
             {!collapsed && <span className="text-sm md:text-base">{item.label}</span>}
-          </a>
+          </Link>
         ))}
       </nav>
     </div>
