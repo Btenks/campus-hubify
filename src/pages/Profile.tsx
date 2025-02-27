@@ -1,6 +1,5 @@
 
 import { useState } from "react";
-import { UserProfile, useUser } from "@clerk/clerk-react";
 import { 
   User, 
   Settings, 
@@ -21,8 +20,14 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Sidebar } from "@/components/Sidebar";
 
 const ProfilePage = () => {
-  const { user } = useUser();
   const [activeTab, setActiveTab] = useState("overview");
+  
+  // Mock user data
+  const mockUser = {
+    fullName: "Demo User",
+    imageUrl: null,
+    primaryEmailAddress: { emailAddress: "demo.user@university.edu" }
+  };
 
   // Mock data
   const courses = [
@@ -54,10 +59,10 @@ const ProfilePage = () => {
             {/* User Card */}
             <div className="glass p-6 rounded-lg text-center">
               <div className="flex justify-center mb-4">
-                {user?.imageUrl ? (
+                {mockUser?.imageUrl ? (
                   <img 
-                    src={user.imageUrl} 
-                    alt={user?.fullName || 'User'} 
+                    src={mockUser.imageUrl} 
+                    alt={mockUser?.fullName || 'User'} 
                     className="w-24 h-24 rounded-full object-cover border-4 border-background"
                   />
                 ) : (
@@ -66,7 +71,7 @@ const ProfilePage = () => {
                   </div>
                 )}
               </div>
-              <h2 className="text-xl font-bold mb-1">{user?.fullName || 'User'}</h2>
+              <h2 className="text-xl font-bold mb-1">{mockUser?.fullName || 'User'}</h2>
               <p className="text-sm text-muted-foreground mb-4">Computer Science • Senior Year</p>
               <div className="flex justify-center gap-2">
                 <Button size="sm" variant="outline">
@@ -84,7 +89,7 @@ const ProfilePage = () => {
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
                   <Mail className="h-4 w-4 text-primary" />
-                  <span className="text-sm">{user?.primaryEmailAddress?.emailAddress || 'email@university.edu'}</span>
+                  <span className="text-sm">{mockUser?.primaryEmailAddress?.emailAddress || 'email@university.edu'}</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <School className="h-4 w-4 text-primary" />
@@ -101,11 +106,10 @@ const ProfilePage = () => {
           {/* Main content */}
           <div className="md:col-span-3 space-y-6">
             <Tabs defaultValue="overview" className="w-full">
-              <TabsList className="w-full grid grid-cols-4 mb-6">
+              <TabsList className="w-full grid grid-cols-3 mb-6">
                 <TabsTrigger value="overview">Overview</TabsTrigger>
                 <TabsTrigger value="academic">Academic</TabsTrigger>
                 <TabsTrigger value="settings">Settings</TabsTrigger>
-                <TabsTrigger value="clerk">Clerk Profile</TabsTrigger>
               </TabsList>
               
               <TabsContent value="overview">
@@ -258,12 +262,6 @@ const ProfilePage = () => {
                       <Button variant="outline">View</Button>
                     </div>
                   </div>
-                </div>
-              </TabsContent>
-              
-              <TabsContent value="clerk">
-                <div className="glass p-6 rounded-lg">
-                  <UserProfile />
                 </div>
               </TabsContent>
             </Tabs>
