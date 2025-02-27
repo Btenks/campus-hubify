@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Search, Filter, Grid3X3, List, ShoppingCart, DollarSign, Book, Laptop, Tag, ArrowUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Sidebar } from "@/components/Sidebar";
 
 const categories = [
   { id: "all", name: "All Items", icon: ShoppingCart },
@@ -91,6 +92,7 @@ const Marketplace = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Sidebar />
       <main className="ml-16 md:ml-64 p-4 md:p-8 animate-fade-in">
         <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>

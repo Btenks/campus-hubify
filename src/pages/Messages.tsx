@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Sidebar } from "@/components/Sidebar";
 
 const Messages = () => {
   const { user } = useUser();
@@ -40,6 +41,7 @@ const Messages = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Sidebar />
       <main className="ml-16 md:ml-64 p-4 md:p-8 animate-fade-in">
         <h1 className="text-3xl font-bold mb-6">Messages</h1>
         

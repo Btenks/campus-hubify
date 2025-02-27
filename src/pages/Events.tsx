@@ -1,6 +1,7 @@
 
 import { Calendar, ChevronRight, Filter, MapPin, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Sidebar } from "@/components/Sidebar";
 
 const Events = () => {
   const events = [
@@ -44,6 +45,7 @@ const Events = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Sidebar />
       <main className="ml-16 md:ml-64 p-4 md:p-8 animate-fade-in">
         <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>

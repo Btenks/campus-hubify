@@ -2,6 +2,7 @@
 import { useUser } from "@clerk/clerk-react";
 import { Bell, Calendar, FileText, Megaphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Sidebar } from "@/components/Sidebar";
 
 const Announcements = () => {
   const { user } = useUser();
@@ -39,6 +40,7 @@ const Announcements = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Sidebar />
       <main className="ml-16 md:ml-64 p-4 md:p-8 animate-fade-in">
         <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
