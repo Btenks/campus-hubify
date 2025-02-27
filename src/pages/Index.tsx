@@ -4,9 +4,11 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { Sidebar } from "@/components/Sidebar";
 import { SignInButton, SignUpButton, UserButton, useUser, SignedIn, SignedOut } from "@clerk/clerk-react";
 import { CalendarDays, MessageSquare, Bell, BookOpen } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
   const { user, isLoaded } = useUser();
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-background">
@@ -67,7 +69,7 @@ const Index = () => {
                 <p className="text-muted-foreground">
                   You have no upcoming events. Check the events page to discover what's happening on campus.
                 </p>
-                <Button variant="outline" className="w-full" onClick={() => window.location.href = '/events'}>
+                <Button variant="outline" className="w-full" onClick={() => navigate('/events')}>
                   View Events
                 </Button>
               </div>
@@ -80,7 +82,7 @@ const Index = () => {
                 <p className="text-muted-foreground">
                   You have no new messages. Connect with your classmates to start a conversation.
                 </p>
-                <Button variant="outline" className="w-full" onClick={() => window.location.href = '/messages'}>
+                <Button variant="outline" className="w-full" onClick={() => navigate('/messages')}>
                   Go to Messages
                 </Button>
               </div>
@@ -93,7 +95,7 @@ const Index = () => {
                 <p className="text-muted-foreground">
                   Stay updated with the latest announcements from your university.
                 </p>
-                <Button variant="outline" className="w-full" onClick={() => window.location.href = '/announcements'}>
+                <Button variant="outline" className="w-full" onClick={() => navigate('/announcements')}>
                   View Announcements
                 </Button>
               </div>
@@ -106,7 +108,7 @@ const Index = () => {
                 <p className="text-muted-foreground">
                   Access study materials, guides, and other resources for your courses.
                 </p>
-                <Button variant="outline" className="w-full" onClick={() => window.location.href = '/marketplace'}>
+                <Button variant="outline" className="w-full" onClick={() => navigate('/marketplace')}>
                   Browse Resources
                 </Button>
               </div>
